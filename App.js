@@ -1,21 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
 
-export default function App() {
+import Home from './src/screens/Home'
+import Men from './src/screens/Men'
+import Women from './src/screens/Women'
+import FetchData from './src/screens/FetchData'
+import ViewProduct from './src/components/ViewProduct'
+import SplashScreen from './src/screens/SplashScreen'
+import ApplyFilter from './src/components/ApplyFilter'
+import { setNavigator } from './src/navigationRef'
+import { Provider as FetchProvider } from './src/context/dataContext'
+
+const navigator = createStackNavigator({
+  Home: Home,
+  Men: Men,
+  Women: Women,
+  Data: FetchData,
+  Details: ViewProduct,
+  Splash: SplashScreen,
+  Filter: ApplyFilter
+},
+  {
+    initialRouteName: 'Splash',
+  }
+)
+
+const App = createAppContainer(navigator)
+
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <FetchProvider>
+      <App ref={(navigator) => { setNavigator(navigator) }} />
+    </FetchProvider>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

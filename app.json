@@ -1,15 +1,10 @@
 {
   "expo": {
-    "name": "Myntra",
-    "slug": "Myntra",
+    "name": "Shopaholic",
+    "slug": "Shopaholic",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "icon": "./assets/icon_logo.png",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -23,7 +18,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.iffatc3.Myntra"
     },
     "web": {
       "favicon": "./assets/favicon.png"
